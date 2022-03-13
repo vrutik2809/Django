@@ -9,6 +9,10 @@
     <title>Home</title>
 </head>
 <body>
+    <header>
+        <a href="{% url 'post_list' %}"><h1 id="title">Home</h1></a>
+        <a href="{% url 'post_new' %}"><button id="new-post">New</button></a>
+    </header>
     {% block content %}
     {% endblock %}
 </body>
