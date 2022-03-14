@@ -1,5 +1,7 @@
+import json
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404, redirect 
+from django.http import HttpResponse
 from .models import Post
 from .forms import PostForm
 
@@ -37,3 +39,9 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+def api_test(request):
+    return HttpResponse(json.dumps({'message': 'Hello, World!','data':{
+        'name': 'John',
+        'age': '25',
+    }}),content_type="application/json")
